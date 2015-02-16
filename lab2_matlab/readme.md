@@ -325,13 +325,13 @@ The [norm2corrx](http://www.mathworks.com/help/images/ref/normxcorr2.htm) can be
     ```
 6.  Explain what the above code does
 
-    > Answer
+    > Inicialmente el código recibe unas coordenadas de la imagen en las cuales se encuentra el tren, que es el resultado de aplicar la función 'imcrop' en la cual el usuario debe seleccionar manualmente lo que se desea recortar. Posteriormente, se realiza la cros-correlación normalizada entre la imagen recortada del tren y la imagen original, de la cual resulta una matriz 'c' en la que se encuentran valores de la correlación entre el template y la imagen. A continuación se calcula el tamaño de la imagen original y de la máscara. Se continúa con la remoción de los bordes de la matriz resultante 'c' de tal forma que quede del mismo tamaño que la imagen original. Después se acentúan los valores de correlación obtenidos, elevando de manera individual los valores de la matriz a la tercera potencia. Se convierten los valores obtenidos a valores entre 0 y 1, multiplicando su valor individual por 0.5 y sumándole 0.5. La matriz obtenida se le asigna al canal de Cr del espacio de color YCbCr. Los últimos pasos corresponden generar el canal Y, transformando la matriz de la imagen original en grises; a generar una matriz con valores de 0.5 y asignárselo al canal Cb, y finalmente a unir los tres canales Y,Cb y Cr y transformarlos a RGB.
     
 7.  Now lets find the train in the next frame, read image ``motion05.512.tiff``.
 8.  Apply the procedure written above to it (use the train template from the past frame)
 9.  What are the limitations of this method?
 
-    > Answer
+    > Ya que el template se obtiene a partir de la imagen original, la búsqueda de la imagen del template en la imagen original resulta sencilla y se obtienen buenos resultados. En caso de que por el contrario no se contara con un template exacto de lo que se busca, o en caso de que el objeto que se busca se encuentre en otra orientación en la imagen, es posible que el resultado de la cross-correlación no sea el ideal y que el objeto no se encuentre en la imagen. 
 
 See [here](http://www.mathworks.com/help/images/examples/registering-an-image-using-normalized-cross-correlation.html)
 another example.
