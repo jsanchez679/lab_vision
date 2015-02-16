@@ -148,16 +148,16 @@ If the command or script doesn't end in ``exit`` the matlab shell will stay open
 2.  Save this script in the matlab lab folder of your git repository
 
 
-A=dir('*.tiff');
-l=size(A);
-h=l(1);
+    A=dir('*.tiff');
+    l=size(A);
+    h=l(1);
 
-for i=1:h
-    name=A(i).name;
-    IMAGE=imread(name);
-    name2=name(1:end-5);
-    imwrite(IMAGE,[name2,'.jpg'])
-end
+    for i=1:h
+        name=A(i).name;
+        IMAGE=imread(name);
+        name2=name(1:end-5);
+        imwrite(IMAGE,[name2,'.jpg'])
+    end
 
 ## Filters
 
@@ -197,7 +197,7 @@ which can be otained from [fspecial](http://www.mathworks.com/help/images/ref/fs
 2.  Try different sizes for the filters
 3.  What differences do you notice?
 
-    > Answer
+    > A medida que se incrementa el tamaño del filtro promedio, la imagen se vuelve más borrosa, pues la intensidad final termina siendo el promedio de las intensidades de más pixeles que rodean el pixel central. Para el filtro gaussiano no es tan perceptible, pues se le da más importancia a las intensidades de los pixeles que se encuentran cercanos al centro, por lo que la intensidad no se ve tan afectada por los píxeles lejanos.
 
 ### Sharpen
 
@@ -205,15 +205,15 @@ The [imsharpen](http://www.mathworks.com/help/images/ref/imsharpen.html) functio
 
 1.  Sharp the ``5.1.12`` image. What do you notice?
 
-    > Answer
+    > La imagen que se obtiene al aplicar el sharpen tiene los bordes mucho más definidos lo que hace que las texturas y detalles de los objetos de la imagen se vean más claros. 
 
 2.  Sharp a blurred image. What do you notice?
 
-    > Answer
+    > Al aplicarle sharpen a la imagen que se había puesto borrosa con un filtro promedio de 3x3 en el punto anterior, los bordes de la imagen se tornaron mucho más definidos. Por el contrario al aplicarle sharpen a la otra imagen borrosa (filtro promedio 9x9) ésta no cambió mucho su aspecto ni definición, lo que hace pensar que el resultado de aplicar ésta función depende mucho de la imagen de entrada y de qué tan definidos se encuentren los bordes en ella. 
 
 ### Edge detection
 
-The following filters from fspecil can be used to enhance edges in an image
+The following filters from fspecial can be used to enhance edges in an image
 -   laplacian
 -   log
 -   prewitt
@@ -224,7 +224,9 @@ Notice that the last two filters detect horizontal edges, in order to detect ver
 1.  Try applying this filters
 2.  What is the difference between prewitt and sobel?
 
-    > Answer
+    > Los dos métodos para detectar bordes (prewitt y sobel) encuentran el vector gradiente o la norma del vector para todos los pixeles de la imagen y de esta manera determinan si el pixel que se está analizando es o no un borde. La diferencia entre los métodos es la máscara que utilizan, pues la máscara de sobel le da más peso a los pixeles que se encuentran sobre la misma fila (en el caso de la máscara que detecta los bordes verticales) o sobre la misma columna (en el caso de la máscara que detecta los bordes horizontales), mientras que el método prewitt le da el mismo peso a todos los pixeles. 
+    
+    Nota: En los dos casos el peso de los pixeles que se encuentran en la misma columna (máscara para bordes verticales) y en la misma fila (máscara para bordes horizontales) tienen peso 0. 
 
 More sophisticated methods for finding edges can be found in the following pages
     -   http://www.mathworks.com/discovery/edge-detection.html
@@ -236,7 +238,7 @@ For more filtering operations look at http://www.mathworks.com/help/images/linea
 
 ## Color Spaces
 
-As seen on the section on reading image, color images are represented by matrices with 4 dimensios.
+As seen on the section on reading image, color images are represented by matrices with 4 dimensions.
 The [color](http://www.mathworks.com/help/images/color.html) matlab module contains functions for moving between
 color spaces.
 
@@ -279,11 +281,11 @@ The [impyramid](http://www.mathworks.com/help/images/ref/impyramid.html) functio
 2.  Create a four level pyramid from the ``5.1.12`` clock  image
 3.  At what level does the people in the picture dissappear?
 
-    >   Answer
+    >   Las personas en la figura desaparecen, es decir dejan de tener una forma clara y se convierten en una cantidad de pixeles coloreados sin forma y con diferetes tonos de grises, en el segundo nivel de la pirámide.
     
 4.  At what level does the numbers in the clock disappear?
 
-    >   Answer
+    >   Los números en el reloj desaparecen del todo en el tercer nivel de la pirámide.
 
 ## Template Matching
 
