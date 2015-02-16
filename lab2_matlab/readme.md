@@ -81,12 +81,12 @@ The [imread](http://www.mathworks.com/help/matlab/ref/imread.html) command is us
     
     What is the dimension of the output?
 
-    >   256x256
+    >   Answer
 
 3.  Read the ``4.2.03`` image
     What is the dimension of the output?
 
-    >   512x512x3
+    >   Answer
 
 ## Displaying Images
 
@@ -99,7 +99,7 @@ The following commands can be used for displaying images
 2.  Try displaying the images read in the previous point using both commands
 3.  What are the differences?
 
-    >   La diferencia entre image y imshow es que 'image' retorna una imagen como una gráfica con coordenadas, mientras que imshow sólamente muestra la imagen. Las dos permiten ampliar y moverse por la imagen. 
+    >   Answer
 
 ## Writing Images
 
@@ -111,12 +111,6 @@ The [imwrite](http://www.mathworks.com/help/matlab/ref/imwrite.html) image is us
 
 ## Matlab and the shell
 
-im1=imread('5.1.12.tiff');
-im2=imread('4.2.03.tiff');
-image(im2);
-imshow(im2);
-imwrite(im1,'Mico.png')
-imwrite(im1,'Mico.jpg')
 ### Shell from Matlab
 
 It is possible to excecute bash commands from matlab by using the [system](http://www.mathworks.com/help/matlab/ref/system.html) command
@@ -145,7 +139,6 @@ If the command or script doesn't end in ``exit`` the matlab shell will stay open
     -   Or both
 2.  Save this script in the matlab lab folder of your git repository
 
-A=dir(
 ## Filters
 
 ### Adding noise
