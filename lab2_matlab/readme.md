@@ -170,7 +170,7 @@ We can do this to simulate difficult capture conditions, and evaluate the algori
 2.  Try the diffente noise types, and save the noisy images to the repository (5 images)
 3.  Try saving noisy images as jpg, what happens?
 
-    > Answer
+    > Al guardar las imágenes con ruido en formato .jpg y comparalas con aquellas guardadas en formato .png, las imágenes quedan más oscuras y los colores se ven menos intensos. Esto puede estar pasando ya que el guardar la imagen en formato .jpg ésta está siendo comprimida y parte de la información de la imagen se pierde, generando estos cambios en color y en intensidad. 
 
 ### Median filter
 
@@ -184,7 +184,7 @@ These filters can be applied to a an image in order to remove noise.
 3.  Try different sizes for the filters
 4.  Which filter works best for salt & pepper noise?
 
-    > Answer
+    > Para el ruido 'salt & pepper' funciona mejor el median filter pues reduce el ruido y a su vez preserva los bordes de la imagen. 
 
 For more on noise removal read http://www.mathworks.com/help/images/noise-removal.html
 
