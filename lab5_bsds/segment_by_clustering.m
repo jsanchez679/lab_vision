@@ -66,7 +66,7 @@ end
 
 
 %Segmentation by clustering
-%K-means 'EmptyAction','singleton'
+%K-means 
 if  strcmp(clustering_method,'k-means') == 1
     v_clust_out = kmeans(im_matrix,number_of_clusters,'Replicates',3);
     im_clust_out = reshape(v_clust_out,[lwd(1),lwd(2)]);
