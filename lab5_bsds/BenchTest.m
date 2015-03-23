@@ -13,10 +13,10 @@ l_Name = length(Name);
 Nclust = [2,5,8,10];
 l_Nclust = length(Nclust);
 
-m=5;
+%m=5;
 
 %K-means
-for i = m%1:l_Name
+for i = 1:l_Name
     imagen_km = i
     for k = 1:l_Nclust
         imageFiles{i} = fullfile(directory, Name(i).name);
@@ -34,7 +34,7 @@ for i = m%1:l_Name
 end
 
 %GMM
-for i = m%1:l_Name
+for i = 1:l_Name
     imagen_gmm = i
     for k = 1:l_Nclust
         imageFiles{i} = fullfile(directory, Name(i).name);
