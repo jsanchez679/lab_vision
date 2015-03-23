@@ -66,15 +66,15 @@ end
 
 
 %Segmentation by clustering
-%K-means
+%K-means 'EmptyAction','singleton'
 if  strcmp(clustering_method,'k-means') == 1
-    v_clust_out = kmeans(im_matrix,number_of_clusters);
+    v_clust_out = kmeans(im_matrix,number_of_clusters,'MaxIter',1000);
     im_clust_out = reshape(v_clust_out,[lwd(1),lwd(2)]);
     my_segmentation = im_clust_out;
     
 %GMM
 elseif strcmp(clustering_method,'gmm') == 1
-    gmm = gmdistribution.fit(im_matrix,number_of_clusters);
+    gmm = gmdistribution.fit(im_matrix,number_of_clusters,'MaxIter',1000);
     v_clust_out = cluster(gmm,im_matrix);
     im_clust_out = reshape(v_clust_out,[lwd(1),lwd(2)]);
     my_segmentation = im_clust_out;
@@ -109,13 +109,13 @@ elseif strcmp(clustering_method,'watershed') == 1
    
 end  
 
-%plot the result in a subplot with the original image
-figure;
-subplot(2,1,1); 
-image(image_in);
-subplot(2,1,2);
-image(my_segmentation);
-colormap colorcube;
+% plot the result in a subplot with the original image
+% figure;
+% subplot(2,1,1); 
+% image(image_in);
+% subplot(2,1,2);
+% image(my_segmentation);
+% colormap colorcube;
 
 end
 
